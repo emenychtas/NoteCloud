@@ -39,7 +39,10 @@
     }
 
 .order-card i {
-    font-size: 26px;
+    font-size: 14px;
+    color: #FAFAFA;
+    text-shadow: 0.5px 0.5px 1px #868686;
+    padding-right: 5px;
 }
 
 .f-left {
