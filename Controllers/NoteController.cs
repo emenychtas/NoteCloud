@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using NoteCloud.Entities;
 using NoteCloud.Models;
 using System;
@@ -34,7 +36,8 @@ namespace NoteCloud.Controllers
         [HttpGet("Edit")]
         public ActionResult Edit([FromQuery] int id)
         {
-            return Ok($"Edit: {id}");
+            return View(noteCloudContext.Notes.FirstOrDefault<Note>(n => n.Id == id));
+            //return Ok($"Edit: {id}");
         }
 
         [HttpGet("Details")]
@@ -46,7 +49,10 @@ namespace NoteCloud.Controllers
         [HttpGet("Delete")]
         public ActionResult Delete([FromQuery] int id)
         {
-            return Ok($"Delete: {id}");
+            KeyValuePair<string,int> kvp = KeyValuePair.Create("Number", 3);
+
+            return Ok(JsonConvert.SerializeObject(kvp));
+            
         }
 
         [HttpGet("Create")]
