@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -46,6 +47,7 @@ namespace NoteCloud.Controllers
             return Ok($"Details: {id}");
         }
 
+        [Authorize]
         [HttpGet("Delete")]
         public ActionResult Delete([FromQuery] int id)
         {
